@@ -1,3 +1,4 @@
+'use client'
 import { FormControl, FormLabel, FormErrorMessage,Input, InputRightElement, InputGroup, IconButton, InputProps } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -30,8 +31,6 @@ function CustomFormField({ label, error, isPassword, ...rest }: ICustomFormField
             <Input
               {...field}
               h="48px"
-              color="grey.0"
-              bgColor="grey.2"
               type={isPassword && !showPassword ? "password" : "text"}
             />
             {isPassword && (

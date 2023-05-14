@@ -1,3 +1,4 @@
+'use client'
 import { Box, BoxProps } from "@chakra-ui/react";
 
 function Background({children, ...rest}: BoxProps) {
@@ -8,6 +9,8 @@ function Background({children, ...rest}: BoxProps) {
       px="22px"
       py="42px"
       bgColor="grey.4"
+      display="flex"
+      flexDir="column"
       {...rest}
     >
       {children}

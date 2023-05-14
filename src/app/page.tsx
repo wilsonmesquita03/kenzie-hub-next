@@ -1,13 +1,13 @@
 'use client'
-import Image from 'next/image'
-import { Heading, Box, Button } from '@chakra-ui/react'
+import Background from '@/components/Background'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
+  const router = useRouter()
+
+  router.push("/login")
+
   return (
-    <main>
-      <Box w="100px" h="100px" bgColor="grey.0"></Box>
-      <Heading color="grey.0">Teste</Heading>
-      <Button bgColor="grey.3" variant="plus">+</Button>
-    </main>
+    <Background/>
   )
 }

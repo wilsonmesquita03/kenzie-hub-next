@@ -1,8 +1,8 @@
 export const metadata = {
-  title: 'Login - Kenzie Hub'
+  title: 'Registro - Kenzie Hub'
 }
 
-export default function LoginLayout({
+export default function RegisterLayout({
   children
 }: { children: React.ReactNode }) {
   return (
