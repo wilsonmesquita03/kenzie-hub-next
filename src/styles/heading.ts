@@ -3,7 +3,8 @@ import { defineStyleConfig } from '@chakra-ui/react'
 export const Heading = defineStyleConfig({
   baseStyle: {
     fontWeight: "700",
-    fontFamily: `'Inter', sans-serif`
+    fontFamily: `'Inter', sans-serif`,
+    color: "grey.0"
   },
   sizes: {
     h1: {

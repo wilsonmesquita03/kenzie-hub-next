@@ -3,16 +3,18 @@ import { defineStyleConfig } from '@chakra-ui/react'
 export const Button = defineStyleConfig({
   baseStyle: {
     fontFamily: `'Inter', sans-serif`,
-    borderRadius: "4px"
+    borderRadius: "4px",
+    color: "grey.0",
+    px: "0px"
   },
   sizes: {
-    s: {
+    small: {
       fontWeight: "600",
       fontSize: "12px",
       px: "16px",
       h: "32px"
     },
-    n: {
+    normal: {
       fontWeight: "500",
       fontSize: "16px",
       px: "22px",
@@ -42,7 +44,6 @@ export const Button = defineStyleConfig({
       }
     },
     plus: {
-      px: "0px",
       fontSize: "32px",
       bgColor: "grey.3",
       _hover: {
