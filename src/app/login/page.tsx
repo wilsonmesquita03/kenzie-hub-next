@@ -6,6 +6,8 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { useRouter } from "next/navigation"
 import FormContainer from "@/components/FormContainer"
 import { ILogin } from "@/interfaces/user.interface"
+import { useContext } from "react"
+import { AuthContext } from "@/contexts/AuthContext"
 
 export default function Login() {
   const router = useRouter()
@@ -16,9 +18,11 @@ export default function Login() {
       password: ""
     }
   });
+
+  const { performLogin } = useContext(AuthContext)
   
   const onSubmit: SubmitHandler<ILogin> = (data) => {
-    console.log(data)
+    performLogin(data)
   }
 
   const isAnyRequiredFieldEmpty = Object.keys(dirtyFields).length == 2
