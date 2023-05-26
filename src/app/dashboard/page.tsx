@@ -8,7 +8,7 @@ export default function Dashboard() {
 
   return (
       <Background>  
-        <Heading>{user?.name}</Heading>
+        <Heading>Olá {user?.name}, esta pagina ainda está em construção</Heading>
       </Background>
   )
 }
