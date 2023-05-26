@@ -8,9 +8,7 @@ import FormContainer from "@/components/FormContainer"
 import { ILogin } from "@/interfaces/user.interface"
 import { Link } from '@chakra-ui/next-js'
 import { AiFillGithub } from "react-icons/ai"
-
-import { useContext } from "react"
-import { AuthContext } from "@/contexts/AuthContext"
+import { useAuth } from "@/contexts/AuthContext"
 
 export default function Login() {
   const router = useRouter()
@@ -22,7 +20,7 @@ export default function Login() {
     }
   });
 
-  const { performLogin } = useContext(AuthContext)
+  const { performLogin } = useAuth()
   
   const onSubmit: SubmitHandler<ILogin> = (data) => {
     performLogin(data)
@@ -46,7 +44,7 @@ export default function Login() {
           <Button variant="primary" size="normal" type="submit" isDisabled={!isAnyRequiredFieldEmpty}>Entrar</Button>
           <Text textStyle="headline-bold" color="grey.1" textAlign="center">Ainda não possui uma conta?</Text>
           <Button variant="disable" size="normal" w="100%" onClick={() => router.push("/register")}>Cadastre-se</Button>
-          <Link href="https://github.com/wilsonmesquita03/kenzie-hub-next" display="flex" justifyContent="center" target="_blank">
+          <Link href="https://github.com/wilsonmesquita03/kenzie-hub-next" aria-label="Código Fonte" display="flex" justifyContent="center" target="_blank">
             <AiFillGithub color="white"/>
           </Link>
         </FormContainer>

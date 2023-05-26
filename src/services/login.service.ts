@@ -1,20 +1,45 @@
+'use server'
 import { ILogin, IUser } from "@/interfaces/user.interface";
 import api from "./api";
+import { cookies } from "next/headers"
+import { AxiosError } from "axios";
 
 interface ILoginResponse {
   user: IUser
   token: string
 }
 
-export const login = async (LoginData: ILogin): Promise<[string, IUser] | undefined> => {
-  try {
-    const response = await api.post<ILoginResponse>("/sessions", LoginData)
+interface ILoginError {
+  status: string
+  message: string
+}
 
-    const {user, token} = response.data
+type LoginResult = {
+  user: IUser | null;
+  message: string;
+};
 
-    return [token, user]
-    
-  } catch (error) {
-    console.error(error)
+export async function login(LoginData: ILogin): Promise<LoginResult> {
+  const result: LoginResult = {
+    user: null,
+    message: ""
   }
+
+  return api.post<ILoginResponse>("/sessions", LoginData)
+    .then(response => {
+      const {user, token} = response.data
+  
+      cookies().set("@kh:token", token)
+
+      result.user = user
+      result.message = "Logado com sucesso"
+
+      return result 
+
+    })
+    .catch((error: AxiosError<ILoginError>) => {
+      result.message = error.response?.data.message || "Ocorreu um erro durante o login";
+
+      return result
+    })
 }

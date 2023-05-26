@@ -1,3 +1,6 @@
+import { ITech } from "./tech.interface"
+import { IWork } from "./work.interface"
+
 export interface IUser {
   id: string
   name: string
@@ -7,8 +10,8 @@ export interface IUser {
   contact: string
   created_at: string
   updated_at: string
-  techs: string[]
-  works: string[]
+  techs: ITech[]
+  works: IWork[]
   avatar_url: string | null
 }
 
