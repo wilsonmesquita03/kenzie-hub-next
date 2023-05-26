@@ -1,6 +1,20 @@
+import { ITech } from "./tech.interface"
+import { IWork } from "./work.interface"
+
 export interface IUser {
-  
+  id: string
+  name: string
+  email: string
+  course_module: string
+  bio: string
+  contact: string
+  created_at: string
+  updated_at: string
+  techs: ITech[]
+  works: IWork[]
+  avatar_url: string | null
 }
+
 
 export interface ILogin {
   email: string

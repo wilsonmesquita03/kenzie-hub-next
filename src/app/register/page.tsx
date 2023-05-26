@@ -1,5 +1,7 @@
+"use client"
 import Background from "@/components/Background";
 import FormContainer from "@/components/FormContainer";
+import { Heading } from "@chakra-ui/react";
 
 export default function Register(){
   return (
@@ -9,7 +11,7 @@ export default function Register(){
       gap="35px"
     >
       <FormContainer>
-        
+        <Heading textAlign="center">Em desenvolvimento</Heading>
       </FormContainer>
     </Background>
   )
